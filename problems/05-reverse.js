@@ -12,8 +12,17 @@ reverse("id"); // "di"
 reverse(""); // ""
 ***********************************************************************/
 
-// your code here
+const reverse = (string, i = 0, newStr = []) => {
+  if (i === string.length) {
+    return newStr.reverse().join("");
+  };
 
+   
+    newStr.push(string[i]);
+
+    return reverse(string, i + 1, newStr)
+  
+}
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
   module.exports = reverse;
