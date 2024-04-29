@@ -40,10 +40,34 @@ times `advancedExponent` is being recursively called.
 ***********************************************************************/
 
 
-function advancedExponent(b, n) {
-  // your code here
+// function advancedExponent(b, n, p = 1) {
+//   if (n === 0) {
+//     return p;
+//   }
+
+//   if (n > 0) {
+//     p = p * b;
+//     return advancedExponent(b, n - 1, p)
+//   }
+// }
+
+const advancedExponent = (b, n, p = 1) => {
+  if (n === 0) {
+    return p;
+  };
+
+  if (n % 2 === 0) {
+    let even = advancedExponent(b, n / 2);
+        return even * even;
+  }
+
+  else {
+    let odd = advancedExponent(b, (n - 1) / 2);
+        return b * (odd * odd);
+  }
 }
 
+console.log(advancedExponent(2, 12))
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
