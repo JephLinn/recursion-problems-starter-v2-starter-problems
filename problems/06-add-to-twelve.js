@@ -12,7 +12,16 @@ addToTwelve([1, 12, 4, 7, 6]); // false
 addToTwelve([1]); // false
 ***********************************************************************/
 
-// your code here
+const addToTwelve = (nums, i = 0) => {
+  if (i === nums.length -1) {
+    return false;
+  };
+  if (nums[i] + nums[i + 1] === 12) {
+    return true;
+  };
+
+  return addToTwelve(nums, i + 1);
+}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
