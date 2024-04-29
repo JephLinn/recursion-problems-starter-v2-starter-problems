@@ -11,7 +11,20 @@ range(7, 6); // []
 ***********************************************************************/
 
 
-// your code here
+const range = (start, end, arr = []) => {
+  if (start > end) {
+    return arr
+  }
+
+  if (start === end) {
+    return arr
+  }
+
+  else {
+    arr.push(start);
+    return range(start + 1, end, arr)
+  }
+}
 
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
