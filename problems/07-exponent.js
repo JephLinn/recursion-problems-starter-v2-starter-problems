@@ -20,8 +20,24 @@ exponent(2, -2); // 1/4 (or 0.25)
 exponent(5, 5); // 3125
 ***********************************************************************/
 
-function exponent(b, n) {
-  // your code here
+// function exponent(b, n) {
+//   return b ** n;
+// }
+
+const exponent = (b, n, product = 1) => {
+  if (n < 0) {
+    product = product * 1/b;
+    return exponent(b, n + 1, product)
+  }
+
+  if (n === 0) {
+    return product;
+  }
+
+  if (n > 0) {
+    product = product * b;
+    return exponent(b, n - 1, product)
+  }
 }
   
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
