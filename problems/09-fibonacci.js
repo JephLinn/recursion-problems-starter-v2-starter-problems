@@ -19,8 +19,28 @@ fibonacci(4); // 3
 fibonacci(10); // 55
 ***********************************************************************/
 
-// your code here
+const fibonacci = (n, i = 0, j = 1, count = 1, sum = 0) => {
+  if (n <= 2) {
+    return 1
+  }
   
+  if (n === count) {
+    return sum
+  }
+  
+  if (n > count) {
+    sum = i + j;
+
+    i = j;
+
+    j = sum;
+
+    return fibonacci(n, i, j, count + 1, sum)
+
+  }
+
+}
+  console.log(fibonacci(9))
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
   module.exports = fibonacci;
