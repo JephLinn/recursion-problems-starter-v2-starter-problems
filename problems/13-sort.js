@@ -22,8 +22,47 @@ sort([]); // []
 ***********************************************************************/
 
 function sort(nums, sorted = []) {
-  // your code here
+  if (nums.length < 1) {
+    return sorted
+  }
+  if (nums.length > 0) {
+    let num = smallest(nums);
+    
+    sorted.push(num);
+
+    nums.splice(nums.indexOf(num), 1);
+
+    return sort(nums, sorted)
+  }
+
+
 }
+
+const smallest = nums => {
+  let tiny = undefined
+  
+  for (let i = 0; i < nums.length; i++) {
+    let num = nums[i]
+    if (tiny === undefined || tiny > num) {
+      tiny = num;
+    }
+  }
+
+  return tiny
+}
+
+// const popper = (nums, num) => {
+//   for (let i = 0; i < nums.length; i++) {
+//     if (nums[i] === num) {
+//       nums.splice(i, 1);
+//       return nums
+//     }
+//   }
+// }
+
+console.log(smallest([0, 1, -3, -10, 16, -400, 36]))
+
+console.log(sort([4,1,6,3,1,7]))
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
